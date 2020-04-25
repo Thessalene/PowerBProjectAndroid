@@ -67,10 +67,10 @@ class AccountAdapter(val context : Context, var bankList : List<Bank>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = accountOrHeaderList[position]
 
-        for(account in accountOrHeaderList){
-            println("ON BIND Bank: " + account.header?.bankName)
-            println("ON BIND Account: " + account.account?.accountName)
-        }
+//        for(account in accountOrHeaderList){
+//            println("ON BIND Bank: " + account.header?.bankName)
+//            println("ON BIND Account: " + account.account?.accountName)
+//        }
 
         if(item.type == TYPE_BANK_HEADER){
             holder.bankHeader.visibility = VISIBLE
@@ -82,7 +82,7 @@ class AccountAdapter(val context : Context, var bankList : List<Bank>) :
             holder.accountNumber.text = context.getString(R.string.lbl_number_account,item.account?.number)
             holder.accountName.text = "${item.account?.accountName}"
             holder.accountSolde.text = context.getString(R.string.lbl_amount_euro,item.account?.solde)
-            println("TEST : " + "${item.account?.number}" + "${item.account?.accountName}" + "${item.account?.solde}")
+            //println("TEST : " + "${item.account?.number}" + "${item.account?.accountName}" + "${item.account?.solde}")
         }
     }
 

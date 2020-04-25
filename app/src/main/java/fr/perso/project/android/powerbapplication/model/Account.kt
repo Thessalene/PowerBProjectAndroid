@@ -1,6 +1,6 @@
 package fr.perso.project.android.powerbproject.model
 
-import fr.perso.project.android.powerbproject.model.enums.EAccountCategory
+import fr.perso.project.android.powerbapplication.model.enums.EAccountCategory
 
 /**
  * Created on 25/04/2020 - 11:44.
