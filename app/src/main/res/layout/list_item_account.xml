@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Header part -->
+
+    <TextView
+        android:id="@+id/tv_bank_header_part"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        tools:text="Nom de la banque"
+        android:background="@android:color/darker_gray"
+        />
+
+    <!-- Account part -->
+    <RelativeLayout
+        android:id="@+id/relativeLayout_account_part"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/tv_account_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="N° 125528"
+            />
+
+        <LinearLayout
+            android:id="@+id/linearLayout_account_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/tv_account_number"
+            >
+            <TextView
+                android:id="@+id/tv_account_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                tools:text="Mon compte courant"
+                />
+
+            <TextView
+                android:id="@+id/tv_account_solde"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                tools:text="125,60€"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_below="@+id/linearLayout_account_detail"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="10dp"
+            android:background="@android:color/darker_gray"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

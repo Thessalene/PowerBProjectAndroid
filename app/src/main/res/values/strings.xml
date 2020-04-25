@@ -3,4 +3,15 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    
+    <!-- Home fragment elements -->
+    <string name="lbl_amount_euro">%1$d€</string>
+    <string name="lbl_number_account">N° %1$d</string>
+    <string-array name="accountChoices">
+        <item>Tous</item>
+        <item>Courant</item>
+        <item>Epargne</item>
+        <item>Prévisionnel</item>
+        <item>Credit</item>
+    </string-array>
 </resources>
