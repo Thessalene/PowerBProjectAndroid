@@ -45,6 +45,7 @@ class HomeFragment : Fragment() {
         // Fill recycler view with accountList
         view.recyclerView_accountList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         view.recyclerView_accountList.adapter = adapterAccount
+        println("MOCK BANK LIST " + mockBankList().toString())
 
         return view
     }
