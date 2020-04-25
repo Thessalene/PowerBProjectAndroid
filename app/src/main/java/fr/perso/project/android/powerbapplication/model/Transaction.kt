@@ -1,5 +1,6 @@
 package fr.perso.project.android.powerbproject.model
 
+import fr.perso.project.android.powerbapplication.model.enums.ETransactionCategory
 import fr.perso.project.android.powerbproject.model.enums.ETransactionType
 import java.util.*
 
@@ -9,5 +10,9 @@ import java.util.*
  *
  * @author : JEAN-LOUIS Thessalène
  */
-class Transaction (date : Calendar, libelle : String, amount: Int, transactionType : ETransactionType){
+class Transaction (val date : Calendar, val libelle : String, val amount: Int, val transactionType : ETransactionType, val transactionCategory : ETransactionCategory = ETransactionCategory.UNKNOWN){
+
+    override fun toString(): String {
+        return "${libelle} ${transactionCategory.name} - ${transactionType.name} : $amount"
+    }
 }

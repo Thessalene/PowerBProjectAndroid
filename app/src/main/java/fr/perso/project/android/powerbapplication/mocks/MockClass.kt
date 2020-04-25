@@ -4,6 +4,7 @@ import fr.perso.project.android.powerbproject.model.Account
 import fr.perso.project.android.powerbproject.model.Bank
 import fr.perso.project.android.powerbproject.model.Transaction
 import fr.perso.project.android.powerbapplication.model.enums.EAccountCategory
+import fr.perso.project.android.powerbapplication.model.enums.ETransactionCategory
 import fr.perso.project.android.powerbproject.model.enums.EBankName
 import fr.perso.project.android.powerbproject.model.enums.ETransactionType
 import java.util.*
@@ -68,6 +69,30 @@ class MockClass {
                     EAccountCategory.CREDIT, transactionList3))
             }
             return accountList
+        }
+
+        @JvmStatic
+        fun mockAccountWithTransactionCategorie() : Account{
+            var transactionList = ArrayList<Transaction>()
+            val calendar = Calendar.getInstance()
+            for(i in 1..5){
+                calendar.add(Calendar.DAY_OF_WEEK, i*4)
+                transactionList.add(Transaction(calendar, "Transac n° $i", i*8-7, ETransactionType.DEBIT, ETransactionCategory.DIVERTISSEMENT))
+            }
+            for(i in 1..3){
+                calendar.add(Calendar.DAY_OF_WEEK, i*4)
+                transactionList.add(Transaction(calendar, "Transac autres $i", i*3, ETransactionType.DEBIT, ETransactionCategory.AUTRE))
+            }
+            transactionList.add(Transaction(calendar, "Transac logement", 580, ETransactionType.DEBIT, ETransactionCategory.LOGEMENT))
+            transactionList.add(Transaction(calendar, "Bank debits", 19, ETransactionType.DEBIT, ETransactionCategory.BANK))
+            transactionList.add(Transaction(calendar, "Virement", 9, ETransactionType.CREDIT, ETransactionCategory.AUTRE))
+            transactionList.add(Transaction(calendar, "APL CAF", 9, ETransactionType.CREDIT, ETransactionCategory.LOGEMENT))
+            transactionList.add(Transaction(calendar, "Virement Externe", 95, ETransactionType.DEBIT, ETransactionCategory.AUTRE))
+            transactionList.add(Transaction(calendar, "Licence", 120, ETransactionType.DEBIT, ETransactionCategory.SPORT))
+            transactionList.add(Transaction(calendar, "Abonnement bus", 15, ETransactionType.DEBIT, ETransactionCategory.TRANSPORT))
+            transactionList.add(Transaction(calendar, "SARL Inconnue", 285, ETransactionType.DEBIT, ETransactionCategory.UNKNOWN))
+
+            return Account(120548, "Mon compte analyse test", 1548, EAccountCategory.CURRENT, transactionList)
         }
     }
 }
