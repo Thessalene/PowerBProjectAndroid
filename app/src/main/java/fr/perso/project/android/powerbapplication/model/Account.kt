@@ -8,4 +8,9 @@ import fr.perso.project.android.powerbproject.model.enums.EAccountCategory
  *
  * @author : JEAN-LOUIS Thessalène
  */
-class Account(number : Int, accountName:String, solde: Int, category: EAccountCategory, transactions:List<Transaction>)
+class Account(val number : Int, val accountName:String, val solde: Int, val category: EAccountCategory, val transactions:List<Transaction>){
+
+    override fun toString(): String {
+        return "${number} - $accountName"
+    }
+}
