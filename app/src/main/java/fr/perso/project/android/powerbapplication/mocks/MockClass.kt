@@ -60,12 +60,12 @@ class MockClass {
                     EAccountCategory.CURRENT, transactionList))
                 //accountList.add(Account(123+i,"Compte courant ${i}",15*i,EAccountCategory.CURRENT, transactionList2))
                 accountList.add(Account(123+i,"Compte épargne ${i}",1574*i,
-                    EAccountCategory.SAVING, transactionList3))
+                    EAccountCategory.SAVING, transactionList3, EBankName.CREDIT_AGRICOLE))
                 //accountList.add(Account(123+i,"Compte épargne ${i}",140*i,EAccountCategory.SAVING, transactionList))
                 accountList.add(Account(123+i,"Compte prévisionnel ${i}",1857+i,
                     EAccountCategory.FORECAST, transactionList2))
                 accountList.add(Account(123+i,"Credit ${i}",1124*i,
-                    EAccountCategory.CREDIT, transactionList3))
+                    EAccountCategory.CREDIT, transactionList3, EBankName.CREDIT_MUTUEL))
             }
             return accountList
         }
