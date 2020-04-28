@@ -8,7 +8,7 @@ import fr.perso.project.android.powerbproject.model.enums.EBankName
  *
  * @author : JEAN-LOUIS Thessalène
  */
-class Bank(val bankName:EBankName, var accounts:List<Account>) {
+data class Bank(val bankName:EBankName, var accounts:List<Account>) {
 
     override fun toString(): String {
         return "${bankName.libelle} - ${accounts.toString()}"

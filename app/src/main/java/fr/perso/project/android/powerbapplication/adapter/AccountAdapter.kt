@@ -1,6 +1,8 @@
 package fr.perso.project.android.powerbapplication.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -8,12 +10,17 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import fr.perso.project.android.powerbapplication.AccountDetailActivity
 import fr.perso.project.android.powerbapplication.R
 import fr.perso.project.android.powerbapplication.model.enums.EAccountCategory
+import fr.perso.project.android.powerbapplication.ui.home.HomeFragment
 import fr.perso.project.android.powerbproject.model.Account
 import fr.perso.project.android.powerbproject.model.Bank
 import kotlinx.android.synthetic.main.list_item_account.view.*
+import java.util.stream.Collectors
 
 /**
  * Created on 25/04/2020 - 13:29.
@@ -21,36 +28,59 @@ import kotlinx.android.synthetic.main.list_item_account.view.*
  *
  * @author : JEAN-LOUIS Thessalène
  */
-class AccountAdapter(val context : Context, var accountList : List<Account>) :
+class AccountAdapter(val context : Context, val accountFilter:String, val accountList : List<Account>) :
     RecyclerView.Adapter<AccountAdapter.ViewHolder>() {
 
     companion object{
         private const val TYPE_HEADER = 0
         private const val TYPE_ACCOUNT = 1
-        val accountOrHeaderList = ArrayList<AccountOrHeader>()
     }
+    var accountOrHeaderList = ArrayList<AccountOrHeader>()
 
     init {
-        convertAccountListToAccountOrHeaderList(accountList)
+        convertAccountListToAccountOrHeaderList(accountFilter)
     }
 
-    class AccountOrHeader(val header : Header?, val account : Account?, val type : Int)
-
-    class Header(val accountCategory : String)
-
-    fun convertAccountListToAccountOrHeaderList(accountList: List<Account>){
-        for(category in EAccountCategory.values()) {
-            accountOrHeaderList.add(AccountOrHeader(Header(category.categoryName), null, TYPE_HEADER))
-            println("CATEGORY : " + category.name)
-            accountList.asSequence().filter { o -> o.category==category }
-                .forEach { println(it.accountName + " " + it.bankName + " " + it.solde) }
-            for(account in accountList.asSequence().filter { o -> o.category==category }.toList()){
-                accountOrHeaderList.add(AccountOrHeader(null, account, TYPE_ACCOUNT))
-            }
+    class AccountOrHeader(val header : Header?, val account : Account?, val type : Int){
+        override fun toString(): String {
+            return "${header?.accountCategory} - ${account?.accountName}"
         }
     }
 
-    class ViewHolder(val view : View) : RecyclerView.ViewHolder(view){
+    class Header(val accountCategory : String)
+
+    fun convertAccountListToAccountOrHeaderList(accountFilter : String){
+        println("---------- CONVERT LIST ----------")
+        var listeTempo = ArrayList<AccountOrHeader>()
+        println("[Convert] Filter : $accountFilter")
+
+        if(accountFilter == "Tous") {
+            for(category in EAccountCategory.values()) {
+                var notreListe = this.accountList
+                val listeF = accountList.asSequence().filter { o -> o.category==category }.toList()
+                if(!listeF.isEmpty())
+                    listeTempo.add(AccountOrHeader(Header(category.categoryName), null, TYPE_HEADER))
+                //println("CATEGORY : " + category.categoryName)
+                for(account in listeF){
+                    listeTempo.add(AccountOrHeader(null, account, TYPE_ACCOUNT))
+                }
+            }
+        }else {
+            var notreListe = this.accountList
+            var listeF = accountList.asSequence().filter { o -> o.category.categoryName==accountFilter }.toList()
+            if(!listeF.isEmpty())
+                listeTempo.add(AccountOrHeader(Header(accountFilter), null, TYPE_HEADER))
+            //println("CATEGORY : " + category.categoryName)
+            for(account in listeF){
+                listeTempo.add(AccountOrHeader(null, account, TYPE_ACCOUNT))
+            }
+        }
+
+        accountOrHeaderList.addAll(listeTempo)
+        println("[Convert] result : ${accountOrHeaderList}")
+    }
+
+    class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
         val header = view.tv_bank_header_part as TextView
         val relativeLayoutAccountPart = view.relativeLayout_account_part as RelativeLayout
         val accountNumber = view.tv_account_number as TextView
@@ -59,21 +89,17 @@ class AccountAdapter(val context : Context, var accountList : List<Account>) :
         val accountBankName = view.tv_account_bankName as TextView
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AccountAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.list_item_account, parent, false))
     }
 
     override fun getItemCount(): Int {
+        //println("---------- GET ITEM COUNT ${accountOrHeaderList.size} ----------")
         return accountOrHeaderList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = accountOrHeaderList[position]
-
-//        for(account in accountOrHeaderList){
-//            println("ON BIND Bank: " + account.header?.accountCategory)
-//            println("ON BIND Account: " + account.account?.accountName)
-//        }
 
         if(item.type == TYPE_HEADER){
             holder.header.visibility = VISIBLE
@@ -88,6 +114,20 @@ class AccountAdapter(val context : Context, var accountList : List<Account>) :
             holder.accountBankName.text = item.account?.bankName?.name
             //println("TEST : " + "${item.account?.number}" + "${item.account?.accountName}" + "${item.account?.solde}")
         }
+
+        holder.relativeLayoutAccountPart.setOnClickListener(View.OnClickListener {
+            if(item.type == TYPE_ACCOUNT)
+                goToAccountDetailActivity(position)
+        })
+    }
+
+    private fun goToAccountDetailActivity(position : Int) {
+        context.startActivity(AccountDetailActivity.newIntent(context,
+            accountOrHeaderList[position].account?.accountName!!,
+            accountOrHeaderList[position].account?.solde!!,
+            accountOrHeaderList[position].account?.transactions!!
+            ))
+        context.startActivity(Intent(context, AccountDetailActivity::class.java))
     }
 
     override fun getItemViewType(position: Int): Int {

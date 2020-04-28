@@ -1,5 +1,6 @@
 package fr.perso.project.android.powerbproject.model
 
+import fr.perso.project.android.powerbapplication.model.Transaction
 import fr.perso.project.android.powerbapplication.model.enums.EAccountCategory
 import fr.perso.project.android.powerbproject.model.enums.EBankName
 
@@ -9,15 +10,15 @@ import fr.perso.project.android.powerbproject.model.enums.EBankName
  *
  * @author : JEAN-LOUIS Thessalène
  */
-class Account(
+data class Account (
     val number : Int,
     val accountName:String,
     val solde: Int,
     val category: EAccountCategory,
-    val transactions:List<Transaction>,
+    val transactions:ArrayList<Transaction>,
     val bankName : EBankName= EBankName.CAISSE_EPÄRGNE){
 
     override fun toString(): String {
-        return "${number} - $accountName"
+        return "${category.name} - $accountName"
     }
 }

@@ -22,11 +22,25 @@ class HomeFragment : Fragment() {
 
     private var ACCOUNT_FILTER : String = "Tous"
 
+    companion object {
+        @JvmStatic
+        fun newInstance(accountFilter : String) : HomeFragment {
+            print("[HOME FRAGMENT]")
+           return HomeFragment().apply {
+                    arguments = Bundle().apply {
+                        putString("AccountFilter", accountFilter)
+                    }
+                }
+            }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+        println("ON CREATE VIEW HOME FRAGMENT ")
 
         var listToDisplay = mockAccountList()
-        val adapterAccount = AccountAdapter(context!!, listToDisplay)
+        println("List to display : $listToDisplay" )
+        val adapterAccount = AccountAdapter(context!!, ACCOUNT_FILTER, listToDisplay)
 
         // Fill recycler view with accountList
         view.recyclerView_accountList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -37,5 +51,8 @@ class HomeFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        arguments?.getString("AccountFilter")?.let {
+            ACCOUNT_FILTER = it
+        }
     }
 }
