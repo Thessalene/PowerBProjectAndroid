@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import fr.perso.project.android.powerbapplication.R
-import fr.perso.project.android.powerbapplication.ui.dashboard.DashboardFragment
-import fr.perso.project.android.powerbapplication.ui.home.HomeFragment
+import fr.perso.project.android.powerbapplication.ui.home.AccountListFragment
 
 private val TAB_TITLES = arrayOf(
     R.string.lbl_all,
@@ -27,12 +26,12 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
         return when(position){
-            0 -> HomeFragment.newInstance(context.getString(R.string.lbl_all))
-            1 -> HomeFragment.newInstance(context.getString(R.string.lbl_current))
-            2 -> HomeFragment.newInstance(context.getString(R.string.lbl_saving))
-            3 -> HomeFragment.newInstance(context.getString(R.string.lbl_forecast))
-            4 -> HomeFragment.newInstance(context.getString(R.string.lbl_credit))
-            else -> HomeFragment.newInstance(context.getString(R.string.lbl_all))
+            0 -> AccountListFragment.newInstance(context.getString(R.string.lbl_all))
+            1 -> AccountListFragment.newInstance(context.getString(R.string.lbl_current))
+            2 -> AccountListFragment.newInstance(context.getString(R.string.lbl_saving))
+            3 -> AccountListFragment.newInstance(context.getString(R.string.lbl_forecast))
+            4 -> AccountListFragment.newInstance(context.getString(R.string.lbl_credit))
+            else -> AccountListFragment.newInstance(context.getString(R.string.lbl_all))
         }
     }
 

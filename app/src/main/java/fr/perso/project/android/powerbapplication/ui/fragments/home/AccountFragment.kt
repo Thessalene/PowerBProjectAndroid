@@ -1,4 +1,4 @@
-package fr.perso.project.android.powerbapplication.ui
+package fr.perso.project.android.powerbapplication.ui.fragments.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import fr.perso.project.android.powerbapplication.R
-import fr.perso.project.android.powerbapplication.ui.main.SectionsPagerAdapter
+import fr.perso.project.android.powerbapplication.adapter.SectionsPagerAdapter
 
 /**
  * TODO
@@ -27,7 +27,11 @@ class AccountFragment : Fragment() {
         val view : View =  inflater.inflate(R.layout.fragment_account, container, false)
 
         val tabs: TabLayout = view.findViewById(R.id.tabs)
-        val sectionsPagerAdapter = SectionsPagerAdapter(context!!, fragmentManager!!)
+        val sectionsPagerAdapter =
+            SectionsPagerAdapter(
+                context!!,
+                fragmentManager!!
+            )
         val viewPager: ViewPager = view.findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
         tabs.setupWithViewPager(viewPager)

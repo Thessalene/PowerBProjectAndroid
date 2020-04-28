@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="fr.perso.project.android.powerbapplication.ui.AccountFragment"
+        android:name="fr.perso.project.android.powerbapplication.ui.fragments.home.AccountFragment"
         android:label="@string/title_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="fr.perso.project.android.powerbapplication.ui.dashboard.DashboardFragment"
+        android:name="fr.perso.project.android.powerbapplication.ui.fragments.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="fr.perso.project.android.powerbapplication.ui.notifications.NotificationsFragment"
+        android:name="fr.perso.project.android.powerbapplication.ui.fragments.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

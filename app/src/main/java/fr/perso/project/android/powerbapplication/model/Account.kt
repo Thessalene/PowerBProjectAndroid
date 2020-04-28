@@ -1,6 +1,5 @@
-package fr.perso.project.android.powerbproject.model
+package fr.perso.project.android.powerbapplication.model
 
-import fr.perso.project.android.powerbapplication.model.Transaction
 import fr.perso.project.android.powerbapplication.model.enums.EAccountCategory
 import fr.perso.project.android.powerbproject.model.enums.EBankName
 

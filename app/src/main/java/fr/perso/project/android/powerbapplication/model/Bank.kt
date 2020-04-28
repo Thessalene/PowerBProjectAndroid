@@ -1,5 +1,6 @@
 package fr.perso.project.android.powerbproject.model
 
+import fr.perso.project.android.powerbapplication.model.Account
 import fr.perso.project.android.powerbproject.model.enums.EBankName
 
 /**

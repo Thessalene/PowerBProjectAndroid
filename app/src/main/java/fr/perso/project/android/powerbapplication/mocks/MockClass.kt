@@ -1,6 +1,6 @@
 package fr.perso.project.android.powerbproject.mocks
 
-import fr.perso.project.android.powerbproject.model.Account
+import fr.perso.project.android.powerbapplication.model.Account
 import fr.perso.project.android.powerbproject.model.Bank
 import fr.perso.project.android.powerbapplication.model.Transaction
 import fr.perso.project.android.powerbapplication.model.enums.EAccountCategory
@@ -58,16 +58,24 @@ class MockClass {
             var accountList = ArrayList<Account>()
 
             for(i in 1..1){
-                accountList.add(Account(123+i,"Compte courant ${i}",124*i,
-                    EAccountCategory.CURRENT, transactionList))
+                accountList.add(
+                    Account(123+i,"Compte courant ${i}",124*i,
+                    EAccountCategory.CURRENT, transactionList)
+                )
                 //accountList.add(Account(123+i,"Compte courant ${i}",15*i,EAccountCategory.CURRENT, transactionList2))
-                accountList.add(Account(123+i,"Compte épargne ${i}",1574*i,
-                    EAccountCategory.SAVING, transactionList3, EBankName.CREDIT_AGRICOLE))
+                accountList.add(
+                    Account(123+i,"Compte épargne ${i}",1574*i,
+                    EAccountCategory.SAVING, transactionList3, EBankName.CREDIT_AGRICOLE)
+                )
                 //accountList.add(Account(123+i,"Compte épargne ${i}",140*i,EAccountCategory.SAVING, transactionList))
-                accountList.add(Account(123+i,"Compte prévisionnel ${i}",1857+i,
-                    EAccountCategory.FORECAST, transactionList2))
-                accountList.add(Account(123+i,"Credit ${i}",1124*i,
-                    EAccountCategory.CREDIT, transactionList3, EBankName.CREDIT_MUTUEL))
+                accountList.add(
+                    Account(123+i,"Compte prévisionnel ${i}",1857+i,
+                    EAccountCategory.FORECAST, transactionList2)
+                )
+                accountList.add(
+                    Account(123+i,"Credit ${i}",1124*i,
+                    EAccountCategory.CREDIT, transactionList3, EBankName.CREDIT_MUTUEL)
+                )
             }
             return accountList
         }
@@ -103,16 +111,20 @@ class MockClass {
 
             var accountList = ArrayList<Account>()
 
-                accountList.add(Account(1234,"Compte courant 1",124,
-                    EAccountCategory.CURRENT, transactionList))
+                accountList.add(
+                    Account(1234,"Compte courant 1",124,
+                    EAccountCategory.CURRENT, transactionList)
+                )
                 //accountList.add(Account(123+i,"Compte courant ${i}",15*i,EAccountCategory.CURRENT, transactionList2))
-                accountList.add(Account(1235,"Compte épargne 1",1574,
-                    EAccountCategory.SAVING, transactionList3, EBankName.CREDIT_AGRICOLE))
+                accountList.add(
+                    Account(1235,"Compte épargne 1",1574,
+                    EAccountCategory.SAVING, transactionList3, EBankName.CREDIT_AGRICOLE)
+                )
 
             return accountList
         }
         @JvmStatic
-        fun mockAccountWithTransactionCategorie() : Account{
+        fun mockAccountWithTransactionCategorie() : Account {
             var transactionList = ArrayList<Transaction>()
             val calendar = Calendar.getInstance()
             for(i in 1..5){

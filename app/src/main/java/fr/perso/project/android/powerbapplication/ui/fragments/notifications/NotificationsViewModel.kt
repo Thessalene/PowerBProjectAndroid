@@ -1,4 +1,4 @@
-package fr.perso.project.android.powerbapplication.ui.notifications
+package fr.perso.project.android.powerbapplication.ui.fragments.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

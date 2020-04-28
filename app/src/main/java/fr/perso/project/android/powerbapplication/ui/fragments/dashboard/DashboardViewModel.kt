@@ -1,4 +1,4 @@
-package fr.perso.project.android.powerbapplication.ui.dashboard
+package fr.perso.project.android.powerbapplication.ui.fragments.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

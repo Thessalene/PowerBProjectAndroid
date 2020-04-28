@@ -1,4 +1,4 @@
-package fr.perso.project.android.powerbapplication.ui.dashboard
+package fr.perso.project.android.powerbapplication.ui.fragments.dashboard
 
 import android.graphics.Color
 import android.os.Bundle
@@ -31,6 +31,8 @@ class DashboardFragment : Fragment() {
         var transactionsMock = mockAccountWithTransactionCategorie().transactions
         println("TRANSACTION LIST : " + transactionsMock.toString())
 
+        println("Somme : " + calculSommeDepenseForCategory(transactionsMock, ETransactionCategory.UNKNOWN, ETransactionType.DEBIT))
+
         //Colors
         var colorClassArray = Array<Int>(7){ Color.DKGRAY; Color.MAGENTA; Color.BLUE; Color.RED; Color.YELLOW; Color.GRAY; Color.GREEN}
 
@@ -47,13 +49,14 @@ class DashboardFragment : Fragment() {
         pieChart.setData(data)
         pieChart.centerText ="Analyse des dépenses par catégorie"
         dataSet.setColors(*ColorTemplate.COLORFUL_COLORS)
+        //dataSet.setColors(colorClassArray.toMutableList())
         //pieChart.animateXY(5000, 5000)
         return root
     }
 
     fun calculSommeDepenseForCategory(transactionList : List<Transaction>, category : ETransactionCategory, type : ETransactionType) : Int{
         return transactionList
-            .asSequence().filter{o -> o.amount < 0}
+            .asSequence().filter{o -> o.transactionCatgeory==category}
             .filter { o -> o.transactionType==type }
             .map {it.amount}
             .sum()
