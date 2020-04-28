@@ -1,7 +1,7 @@
-package fr.perso.project.android.powerbproject.model
+package fr.perso.project.android.powerbapplication.model
 
-import fr.perso.project.android.powerbproject.model.enums.ETransactionType
-import java.util.*
+import fr.perso.project.android.powerbapplication.model.enums.ETransactionType
+import java.io.Serializable
 
 /**
  * Created on 25/04/2020 - 11:41.
@@ -9,5 +9,5 @@ import java.util.*
  *
  * @author : JEAN-LOUIS Thessalène
  */
-class Transaction (date : Calendar, libelle : String, amount: Int, transactionType : ETransactionType){
-}
+data class Transaction (val date : String, val libelle : String, val amount: Int, val transactionType : ETransactionType) :
+    Serializable

@@ -1,4 +1,6 @@
-package fr.perso.project.android.powerbproject.model.enums
+package fr.perso.project.android.powerbapplication.model.enums
+
+import java.io.Serializable
 
 /**
  * Created on 25/04/2020 - 11:43.
@@ -6,7 +8,7 @@ package fr.perso.project.android.powerbproject.model.enums
  *
  * @author : JEAN-LOUIS Thessalène
  */
-enum class ETransactionType {
+enum class ETransactionType : Serializable{
     CREDIT,
     DEBIT
 }

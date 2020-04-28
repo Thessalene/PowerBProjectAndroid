@@ -5,41 +5,54 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.LinearLayout.VERTICAL
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.perso.project.android.powerbapplication.R
 import fr.perso.project.android.powerbapplication.adapter.AccountAdapter
-import fr.perso.project.android.powerbapplication.adapter.AccountChoicesAdapter
 import fr.perso.project.android.powerbproject.mocks.MockClass.Companion.mockBankList
-import kotlinx.android.synthetic.main.fragment_home.*
+import fr.perso.project.android.powerbapplication.model.enums.EAccountCategory
+import fr.perso.project.android.powerbproject.mocks.MockClass.Companion.mockAccountList
+import fr.perso.project.android.powerbproject.model.Account
 import kotlinx.android.synthetic.main.fragment_home.view.*
-
 
 class HomeFragment : Fragment() {
 
+    private var ACCOUNT_FILTER : String = "Tous"
+
+    companion object {
+        @JvmStatic
+        fun newInstance(accountFilter : String) : HomeFragment {
+            print("[HOME FRAGMENT]")
+           return HomeFragment().apply {
+                    arguments = Bundle().apply {
+                        putString("AccountFilter", accountFilter)
+                    }
+                }
+            }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+        println("ON CREATE VIEW HOME FRAGMENT ")
 
-        // Fill recycler view with bankList
+        var listToDisplay = mockAccountList()
+        println("List to display : $listToDisplay" )
+        val adapterAccount = AccountAdapter(context!!, ACCOUNT_FILTER, listToDisplay)
+
+        // Fill recycler view with accountList
         view.recyclerView_accountList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        view.recyclerView_accountList.adapter = AccountAdapter(context!!, mockBankList())
-        println("MOCK BANK LIST " + mockBankList().toString())
+        view.recyclerView_accountList.adapter = adapterAccount
 
-        //Fill spinner
-        val stringArray =  resources.getStringArray(R.array.accountChoices)
-        if (view.spinner_account_choice != null) {
-            val adapter = ArrayAdapter(
-                context!!,
-                android.R.layout.simple_spinner_item, stringArray
-            )
-            view.spinner_account_choice.adapter = adapter
-        }
         return view
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        arguments?.getString("AccountFilter")?.let {
+            ACCOUNT_FILTER = it
+        }
     }
 }

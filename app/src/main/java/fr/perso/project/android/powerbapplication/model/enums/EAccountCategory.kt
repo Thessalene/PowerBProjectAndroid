@@ -1,8 +1,9 @@
-package fr.perso.project.android.powerbproject.model.enums
+package fr.perso.project.android.powerbapplication.model.enums
 
-enum class EAccountCategory {
-    CURRENT,
-    SAVING,
-    FORECAST,
-    CREDIT
+enum class EAccountCategory (val categoryName : String){
+    CURRENT("Courant"),
+    SAVING("Epargne"),
+    FORECAST("Prévisionnel"),
+    CREDIT("Crédit")
+
 }

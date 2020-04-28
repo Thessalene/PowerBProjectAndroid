@@ -57,8 +57,18 @@
 
         </LinearLayout>
 
-        <View
+        <TextView
+            android:id="@+id/tv_account_bankName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
             android:layout_below="@+id/linearLayout_account_detail"
+            tools:text="Caisse d'épargne"
+            />
+
+        <View
+            android:layout_below="@+id/tv_account_bankName"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_margin="10dp"

@@ -3,7 +3,14 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    
+
+    <!-- Home Activity -->
+    <string name="lbl_all">Tous</string>
+    <string name="lbl_current">Courant</string>
+    <string name="lbl_saving">Epargne</string>
+    <string name="lbl_forecast">Prévisionnel</string>
+    <string name="lbl_credit">Crédit</string>
+
     <!-- Home fragment elements -->
     <string name="lbl_amount_euro">%1$d€</string>
     <string name="lbl_number_account">N° %1$d</string>
@@ -14,4 +21,10 @@
         <item>Prévisionnel</item>
         <item>Credit</item>
     </string-array>
+
+
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_account_detail">AccountDetailActivity</string>
 </resources>
