@@ -12,10 +12,10 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.utils.ColorTemplate
 import fr.perso.project.android.powerbapplication.R
+import fr.perso.project.android.powerbapplication.model.Transaction
 import fr.perso.project.android.powerbapplication.model.enums.ETransactionCategory
+import fr.perso.project.android.powerbapplication.model.enums.ETransactionType
 import fr.perso.project.android.powerbproject.mocks.MockClass.Companion.mockAccountWithTransactionCategorie
-import fr.perso.project.android.powerbproject.model.Transaction
-import fr.perso.project.android.powerbproject.model.enums.ETransactionType
 
 
 class DashboardFragment : Fragment() {
@@ -53,7 +53,7 @@ class DashboardFragment : Fragment() {
 
     fun calculSommeDepenseForCategory(transactionList : List<Transaction>, category : ETransactionCategory, type : ETransactionType) : Int{
         return transactionList
-            .asSequence().filter{o -> o.transactionCategory==category}
+            .asSequence().filter{o -> o.amount < 0}
             .filter { o -> o.transactionType==type }
             .map {it.amount}
             .sum()

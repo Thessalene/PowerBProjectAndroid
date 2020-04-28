@@ -7,9 +7,8 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="fr.perso.project.android.powerbapplication.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="fr.perso.project.android.powerbapplication.ui.AccountFragment"
+        android:label="@string/title_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"

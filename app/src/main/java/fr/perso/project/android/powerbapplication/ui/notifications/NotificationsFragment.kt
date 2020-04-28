@@ -20,52 +20,17 @@ import kotlinx.android.synthetic.main.fragment_notifications.view.*
 
 class NotificationsFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_notifications, container, false)
 
-        // Setting ViewPager for each Tabs
-        val viewPager : ViewPager = view.viewpager as ViewPager
-        setupViewPager(viewPager)
-        // Set Tabs inside Toolbar
-        val tabs : TabLayout = view.result_tabs as TabLayout
-        tabs.setupWithViewPager(viewPager)
+
         return view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setRetainInstance(true);
-    }
-
-
-    // Add Fragments to Tabs
-    fun setupViewPager(viewPager : ViewPager) {
-        val adapter = Adapter(childFragmentManager)
-        adapter.addFragment(HomeFragment(), "Today")
-        adapter.addFragment(DashboardFragment(), "Week")
-        viewPager.adapter = adapter
-    }
-
-    class Adapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager){
-        private val mFragmentList = ArrayList<Fragment>()
-        private val mFragmentTitleList = ArrayList<String>()
-
-        override fun getItem(position: Int): Fragment {
-            return mFragmentList[position]
-        }
-
-       override fun getCount() : Int{
-            return mFragmentList.size
-        }
-
-        fun addFragment(fragment : Fragment, title : String) {
-            mFragmentList.add(fragment)
-            mFragmentTitleList.add(title)
-        }
-
-        override fun getPageTitle(position: Int): CharSequence? {
-            return mFragmentTitleList[position]
-        }
     }
 }
