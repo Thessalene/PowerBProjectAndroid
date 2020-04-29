@@ -4,4 +4,29 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#FCFBFC</color>
+    <color name="red">#CF2D20</color>
+
+    <!-- My color palette -->
+    <!-- Blue colors -->
+    <color name="Dark_blue">#280089</color>
+    <color name="Dark_blue2">#390099</color>
+
+    <!-- Pink colors -->
+    <color name="Dark_pink">#A62442</color>
+    <color name="Dark_pink2">#DB3A6A</color>
+    <color name="Light_pink">#FF4884</color>
+    <color name="Light_pink2">#FF6DA5</color>
+
+    <!-- Purple colors -->
+    <color name="Dark_purple">#820042</color>
+    <color name="Dark_purple2">#A62442</color>
+    <color name="Light_purple">#BB3E8B</color>
+    <color name="Light_purple2">#D87DBD</color>
+
+    <!-- Orange colors -->
+    <color name="Dark_orange">#CB3B00</color>
+    <color name="Dark_orange2">#FF5400</color>
+    <color name="Light_orange">#FF6B18</color>
+    <color name="Light_orange2">#FF8E3D</color>
+
 </resources>

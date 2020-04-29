@@ -7,7 +7,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import fr.perso.project.android.powerbapplication.R
 
 /**
  * Home Activity with bottom navigation view to navigate between Account, Dashboard and Notifications Fragments
@@ -27,8 +26,8 @@ class HomeActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,
-                R.id.navigation_dashboard,
-                R.id.navigation_notifications
+                R.id.navigation_budget,
+                R.id.navigation_saving
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

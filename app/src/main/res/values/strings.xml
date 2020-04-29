@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">PowerBApplication</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_budget">Budget</string>
+    <string name="title_saving">Épargne</string>
 
     <!-- Home Activity -->
     <string name="lbl_all">Tous</string>
     <string name="lbl_current">Courant</string>
-    <string name="lbl_saving">Epargne</string>
+    <string name="lbl_saving">Épargne</string>
     <string name="lbl_forecast">Prévisionnel</string>
     <string name="lbl_credit">Crédit</string>
 
@@ -22,6 +22,16 @@
         <item>Credit</item>
     </string-array>
 
+    <!-- Analysis/Budget fragment elements -->
+    <string name="lbl_no_categorised">Non catégorisé</string>
+    <string name="lbl_housing">Logement</string>
+    <string name="lbl_transport">Transport</string>
+    <string name="lbl_alimentation">Alimentation</string>
+    <string name="lbl_entertainment">Divertissement</string>
+    <string name="lbl_sport">Sport</string>
+    <string name="lbl_bank">Banque</string>
+    <string name="lbl_other">Autre</string>
+
 
     <string name="title_activity_home">HomeActivity</string>
     <string name="tab_text_1">Tab 1</string>
@@ -31,4 +41,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="lbl_error_no_transaction_available">Aucun transaction disponible</string>
+    <string name="lbl_expenses">Dépenses</string>
+    <string name="lbl_incomes">Revenus</string>
 </resources>

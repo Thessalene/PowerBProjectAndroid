@@ -130,19 +130,25 @@ class MockClass {
             for(i in 1..5){
                 calendar.add(Calendar.DAY_OF_WEEK, i*4)
                 transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Transac n° $i", i*8-7, ETransactionType.DEBIT, ETransactionCategory.DIVERTISSEMENT))
+                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Transac crédit n° $i", i*4-3, ETransactionType.CREDIT, ETransactionCategory.DIVERTISSEMENT))
             }
             for(i in 1..3){
                 calendar.add(Calendar.DAY_OF_WEEK, i*4)
                 transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Transac autres $i", i*3, ETransactionType.DEBIT, ETransactionCategory.AUTRE))
             }
             transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Transac logement", 580, ETransactionType.DEBIT, ETransactionCategory.LOGEMENT))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Crédit logement", 180, ETransactionType.CREDIT, ETransactionCategory.LOGEMENT))
             transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Bank debits", 19, ETransactionType.DEBIT, ETransactionCategory.BANK))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Bank credits", 5, ETransactionType.CREDIT, ETransactionCategory.BANK))
             transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Virement", 9, ETransactionType.CREDIT, ETransactionCategory.AUTRE))
             transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "APL CAF", 9, ETransactionType.CREDIT, ETransactionCategory.LOGEMENT))
             transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Virement Externe", 95, ETransactionType.DEBIT, ETransactionCategory.AUTRE))
             transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Licence", 120, ETransactionType.DEBIT, ETransactionCategory.SPORT))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Assurance sport", 20, ETransactionType.CREDIT, ETransactionCategory.SPORT))
             transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Abonnement bus", 15, ETransactionType.DEBIT, ETransactionCategory.TRANSPORT))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Remboursement bus", 15, ETransactionType.CREDIT, ETransactionCategory.TRANSPORT))
             transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "SARL Inconnue", 285, ETransactionType.DEBIT, ETransactionCategory.UNKNOWN))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "SARL Inconnue Crdéit", 85, ETransactionType.CREDIT, ETransactionCategory.UNKNOWN))
 
             return Account(120548, "Mon compte analyse test", 1548, EAccountCategory.CURRENT, transactionList)
         }

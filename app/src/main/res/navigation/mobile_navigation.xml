@@ -11,14 +11,14 @@
         android:label="@string/title_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="fr.perso.project.android.powerbapplication.ui.fragments.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_budget"
+        android:name="fr.perso.project.android.powerbapplication.ui.fragments.budget.BudgetFragment"
+        android:label="@string/title_budget"
+        tools:layout="@layout/fragment_budget" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="fr.perso.project.android.powerbapplication.ui.fragments.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:id="@+id/navigation_saving"
+        android:name="fr.perso.project.android.powerbapplication.ui.fragments.saving.SavingFragment"
+        android:label="@string/title_saving"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

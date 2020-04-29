@@ -1,11 +1,11 @@
-package fr.perso.project.android.powerbapplication.ui.main
+package fr.perso.project.android.powerbapplication.adapter
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import fr.perso.project.android.powerbapplication.R
-import fr.perso.project.android.powerbapplication.ui.home.AccountListFragment
+import fr.perso.project.android.powerbapplication.ui.fragments.AccountListFragment
 
 private val TAB_TITLES = arrayOf(
     R.string.lbl_all,

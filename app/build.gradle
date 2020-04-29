@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -54,6 +52,9 @@ dependencies {
 
     //Analysis chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    //Fancy Button
+    implementation 'com.github.medyo:fancybuttons:1.9.1'
 
     //Test
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
