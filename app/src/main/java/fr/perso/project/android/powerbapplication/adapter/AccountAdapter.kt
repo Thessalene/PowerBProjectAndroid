@@ -1,7 +1,6 @@
 package fr.perso.project.android.powerbapplication.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -50,22 +49,20 @@ class AccountAdapter(val context : Context, val accountFilter:String, val accoun
 
         if(accountFilter == "Tous") {
             for(category in EAccountCategory.values()) {
-                var notreListe = this.accountList
-                val listeF = accountList.asSequence().filter { o -> o.category==category }.toList()
-                if(!listeF.isEmpty())
+                val filteredList = accountList.asSequence().filter { o -> o.category==category }.toList()
+                if(!filteredList.isEmpty())
                     listeTempo.add(AccountOrHeader(Header(category.categoryName), null, TYPE_HEADER))
                 //println("CATEGORY : " + category.categoryName)
-                for(account in listeF){
+                for(account in filteredList){
                     listeTempo.add(AccountOrHeader(null, account, TYPE_ACCOUNT))
                 }
             }
         }else {
-            var notreListe = this.accountList
-            var listeF = accountList.asSequence().filter { o -> o.category.categoryName==accountFilter }.toList()
-            if(!listeF.isEmpty())
+            var filteredList = accountList.asSequence().filter { o -> o.category.categoryName==accountFilter }.toList()
+            if(filteredList.isNotEmpty())
                 listeTempo.add(AccountOrHeader(Header(accountFilter), null, TYPE_HEADER))
             //println("CATEGORY : " + category.categoryName)
-            for(account in listeF){
+            for(account in filteredList){
                 listeTempo.add(AccountOrHeader(null, account, TYPE_ACCOUNT))
             }
         }

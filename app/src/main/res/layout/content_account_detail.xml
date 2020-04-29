@@ -26,6 +26,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_transactionList"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/divider"

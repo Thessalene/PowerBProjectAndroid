@@ -44,7 +44,6 @@ class AccountDetailActivity : AppCompatActivity() {
 
         // Fill recycler view with accountList
         recyclerView_transactionList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        recyclerView_transactionList.addItemDecoration(DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL))
         transactionAdapter = TransactionAdapter(this, accountTransactions!!)
         recyclerView_transactionList.adapter = transactionAdapter
 
