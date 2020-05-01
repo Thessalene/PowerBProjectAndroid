@@ -2,21 +2,34 @@ package fr.perso.project.android.powerbapplication.ui.fragments.settings
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceFragmentCompat
 import fr.perso.project.android.powerbapplication.R
+import android.widget.Toast
+import androidx.preference.Preference
+
 
 /**
  * TODO
  */
-class SettingsFragment : Fragment() {
+class SettingsFragment : PreferenceFragmentCompat() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        setHasOptionsMenu(true)
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.preferences_settings, rootKey)
+    }
+
+    override fun onPreferenceTreeClick(preference: Preference?): Boolean {
+        val key = preference?.key
+
+        when(preference?.key){
+            //General settings
+            //Account settings
+            "add_account_settings" -> Toast.makeText(context, "Ajouter un compte", Toast.LENGTH_SHORT).show()
+            //Notifications settings
+
+            else -> Toast.makeText(context, "Autre", Toast.LENGTH_SHORT).show()
+        }
+
+        return true
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -24,4 +37,5 @@ class SettingsFragment : Fragment() {
         inflater.inflate(R.menu.settings_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
+
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="General">
+        <EditTextPreference
+            android:defaultValue="Valeur defaut"
+            android:key="Name"
+            android:summary="Resume"
+            android:title="Titre" />
+
+
+        <androidx.preference.ListPreference
+            android:dialogTitle="Dialog title"
+            android:key="Key"
+            android:summary="Resume"
+            android:title="Titre"
+            android:defaultValue="1"
+            android:entries="@array/listArray"
+            android:entryValues="@array/listValues" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Account">
+
+        <Preference
+            android:key="add_account_settings"
+            android:title="Ajouter un compte" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="key"
+            android:title="title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Notifications">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="key_vibrate"
+            android:summary="Resume"
+            android:title="Activer les notifications" />
+
+        <!-- preference opens url in browser -->
+        <Preference
+            android:summary="View Website"
+            android:title="Netflux test">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://netflix.com" />
+        </Preference>
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

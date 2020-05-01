@@ -63,6 +63,9 @@ dependencies {
     //circular Image View
     implementation 'de.hdodenhof:circleimageview:3.0.1' // for circularImageView
 
+    //Preferences settings
+    implementation 'androidx.preference:preference:1.1.1'
+
     //Test
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'

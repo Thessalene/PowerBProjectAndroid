@@ -44,4 +44,17 @@
     <string name="lbl_error_no_transaction_available">Aucune transaction disponible</string>
     <string name="lbl_expenses">Dépenses</string>
     <string name="lbl_incomes">Revenus</string>
+
+    <string-array name="listArray">
+        <item>Headings</item>
+        <item>Headings and Details</item>
+        <item>All Data</item>
+    </string-array>
+
+    <string-array name="listValues">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
 </resources>
