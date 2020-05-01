@@ -20,7 +20,7 @@ class MockClass {
     companion object{
         @JvmStatic
         fun mockBankList() : MutableList<Bank>{
-            var bankList = ArrayList<Bank>()
+            val bankList = ArrayList<Bank>()
             for(i in 1..3){
                 bankList.add(Bank(EBankName.values()[i], mockAccountList()))
             }
@@ -29,51 +29,51 @@ class MockClass {
         @JvmStatic
         fun mockAccountList() : List<Account>{
             //Create Transaction list
-            var transactionList = ArrayList<Transaction>()
-            var transactionList2 = ArrayList<Transaction>()
-            var transactionList3 = ArrayList<Transaction>()
+            val transactionList = ArrayList<Transaction>()
+            val transactionList2 = ArrayList<Transaction>()
+            val transactionList3 = ArrayList<Transaction>()
 
-            var calendar = Calendar.getInstance()
+            val calendar = Calendar.getInstance()
 
             for(i in 1..10){
                 calendar.add(Calendar.DAY_OF_WEEK, i*2)
-                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*12, ETransactionType.CREDIT))
-                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*10-4, ETransactionType.DEBIT))
-                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*4, ETransactionType.CREDIT))
-                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*7, ETransactionType.DEBIT))
+                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*12.0, ETransactionType.CREDIT))
+                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*10-4.0, ETransactionType.DEBIT))
+                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*4.0, ETransactionType.CREDIT))
+                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*7.0, ETransactionType.DEBIT))
             }
 
             for(i in 1..5){
                 calendar.add(Calendar.DAY_OF_WEEK, i*4)
-                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*5, ETransactionType.CREDIT))
-                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*4-4, ETransactionType.DEBIT))
+                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*5.0, ETransactionType.CREDIT))
+                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*4-4.0, ETransactionType.DEBIT))
             }
 
             for(i in 1..3){
                 calendar.add(Calendar.DAY_OF_WEEK, i*8)
-                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*2, ETransactionType.CREDIT))
-                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*8-5, ETransactionType.DEBIT))
+                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*2.0, ETransactionType.CREDIT))
+                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*8-5.0, ETransactionType.DEBIT))
             }
 
-            var accountList = ArrayList<Account>()
+            val accountList = ArrayList<Account>()
 
             for(i in 1..1){
                 accountList.add(
-                    Account(123+i,"Compte courant ${i}",124*i,
+                    Account(123+i,"Compte courant ${i}",124.0*i,
                     EAccountCategory.CURRENT, transactionList)
                 )
                 //accountList.add(Account(123+i,"Compte courant ${i}",15*i,EAccountCategory.CURRENT, transactionList2))
                 accountList.add(
-                    Account(123+i,"Compte épargne ${i}",1574*i,
+                    Account(123+i,"Compte épargne ${i}",1574.0*i,
                     EAccountCategory.SAVING, transactionList3, EBankName.CREDIT_AGRICOLE)
                 )
                 //accountList.add(Account(123+i,"Compte épargne ${i}",140*i,EAccountCategory.SAVING, transactionList))
                 accountList.add(
-                    Account(123+i,"Compte prévisionnel ${i}",1857+i,
+                    Account(123+i,"Compte prévisionnel ${i}",1857.0+i,
                     EAccountCategory.FORECAST, transactionList2)
                 )
                 accountList.add(
-                    Account(123+i,"Credit ${i}",1124*i,
+                    Account(123+i,"Credit ${i}",1124.0*i,
                     EAccountCategory.CREDIT, transactionList3, EBankName.CREDIT_MUTUEL)
                 )
             }
@@ -83,41 +83,41 @@ class MockClass {
         @JvmStatic
         fun mockAccountList2() : List<Account>{
             //Create Transaction list
-            var transactionList = ArrayList<Transaction>()
-            var transactionList2 = ArrayList<Transaction>()
-            var transactionList3 = ArrayList<Transaction>()
+            val transactionList = ArrayList<Transaction>()
+            val transactionList2 = ArrayList<Transaction>()
+            val transactionList3 = ArrayList<Transaction>()
 
-            var calendar = Calendar.getInstance()
+            val calendar = Calendar.getInstance()
 
             for(i in 1..10){
                 calendar.add(Calendar.DAY_OF_WEEK, i*2)
-                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*12, ETransactionType.CREDIT))
-                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*10-4, ETransactionType.DEBIT))
-                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*4, ETransactionType.CREDIT))
-                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*7, ETransactionType.DEBIT))
+                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*12.0, ETransactionType.CREDIT))
+                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*10-4.0, ETransactionType.DEBIT))
+                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*4.0, ETransactionType.CREDIT))
+                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*7.0, ETransactionType.DEBIT))
             }
 
             for(i in 1..5){
                 calendar.add(Calendar.DAY_OF_WEEK, i*4)
-                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*5, ETransactionType.CREDIT))
-                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*4-4, ETransactionType.DEBIT))
+                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*5.0, ETransactionType.CREDIT))
+                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*4-4.0, ETransactionType.DEBIT))
             }
 
             for(i in 1..3){
                 calendar.add(Calendar.DAY_OF_WEEK, i*8)
-                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*2, ETransactionType.CREDIT))
-                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*8-5, ETransactionType.DEBIT))
+                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac C $i", i*2.0, ETransactionType.CREDIT))
+                transactionList2.add(Transaction(formatCalendarDateToFrDate(calendar),"Transac D $i", i*8-5.0, ETransactionType.DEBIT))
             }
 
-            var accountList = ArrayList<Account>()
+            val accountList = ArrayList<Account>()
 
                 accountList.add(
-                    Account(1234,"Compte courant 1",124,
+                    Account(1234,"Compte courant 1",124.0,
                     EAccountCategory.CURRENT, transactionList)
                 )
                 //accountList.add(Account(123+i,"Compte courant ${i}",15*i,EAccountCategory.CURRENT, transactionList2))
                 accountList.add(
-                    Account(1235,"Compte épargne 1",1574,
+                    Account(1235,"Compte épargne 1",1574.0,
                     EAccountCategory.SAVING, transactionList3, EBankName.CREDIT_AGRICOLE)
                 )
 
@@ -125,32 +125,32 @@ class MockClass {
         }
         @JvmStatic
         fun mockAccountWithTransactionCategorie() : Account {
-            var transactionList = ArrayList<Transaction>()
+            val transactionList = ArrayList<Transaction>()
             val calendar = Calendar.getInstance()
             for(i in 1..5){
                 calendar.add(Calendar.DAY_OF_WEEK, i*4)
-                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Transac n° $i", i*8-7, ETransactionType.DEBIT, ETransactionCategory.DIVERTISSEMENT))
-                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Transac crédit n° $i", i*4-3, ETransactionType.CREDIT, ETransactionCategory.DIVERTISSEMENT))
+                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Transac n° $i", i*8-7.0, ETransactionType.DEBIT, ETransactionCategory.DIVERTISSEMENT))
+                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Transac crédit n° $i", i*4-3.0, ETransactionType.CREDIT, ETransactionCategory.DIVERTISSEMENT))
             }
             for(i in 1..3){
                 calendar.add(Calendar.DAY_OF_WEEK, i*4)
-                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Transac autres $i", i*3, ETransactionType.DEBIT, ETransactionCategory.AUTRE))
+                transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Transac autres $i", i*3.0, ETransactionType.DEBIT, ETransactionCategory.AUTRE))
             }
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Transac logement", 580, ETransactionType.DEBIT, ETransactionCategory.LOGEMENT))
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Crédit logement", 180, ETransactionType.CREDIT, ETransactionCategory.LOGEMENT))
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Bank debits", 19, ETransactionType.DEBIT, ETransactionCategory.BANK))
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Bank credits", 5, ETransactionType.CREDIT, ETransactionCategory.BANK))
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Virement", 9, ETransactionType.CREDIT, ETransactionCategory.AUTRE))
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "APL CAF", 9, ETransactionType.CREDIT, ETransactionCategory.LOGEMENT))
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Virement Externe", 95, ETransactionType.DEBIT, ETransactionCategory.AUTRE))
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Licence", 120, ETransactionType.DEBIT, ETransactionCategory.SPORT))
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Assurance sport", 20, ETransactionType.CREDIT, ETransactionCategory.SPORT))
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Abonnement bus", 15, ETransactionType.DEBIT, ETransactionCategory.TRANSPORT))
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Remboursement bus", 15, ETransactionType.CREDIT, ETransactionCategory.TRANSPORT))
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "SARL Inconnue", 285, ETransactionType.DEBIT, ETransactionCategory.UNKNOWN))
-            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "SARL Inconnue Crdéit", 85, ETransactionType.CREDIT, ETransactionCategory.UNKNOWN))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Transac logement", 580.0, ETransactionType.DEBIT, ETransactionCategory.LOGEMENT))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Crédit logement", 180.0, ETransactionType.CREDIT, ETransactionCategory.LOGEMENT))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Bank debits", 19.0, ETransactionType.DEBIT, ETransactionCategory.BANK))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Bank credits", 5.0, ETransactionType.CREDIT, ETransactionCategory.BANK))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Virement", 9.0, ETransactionType.CREDIT, ETransactionCategory.AUTRE))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "APL CAF", 9.0, ETransactionType.CREDIT, ETransactionCategory.LOGEMENT))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Virement Externe", 95.0, ETransactionType.DEBIT, ETransactionCategory.AUTRE))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Licence", 120.0, ETransactionType.DEBIT, ETransactionCategory.SPORT))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Assurance sport", 20.0, ETransactionType.CREDIT, ETransactionCategory.SPORT))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Abonnement bus", 15.0, ETransactionType.DEBIT, ETransactionCategory.TRANSPORT))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "Remboursement bus", 15.0, ETransactionType.CREDIT, ETransactionCategory.TRANSPORT))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "SARL Inconnue", 285.0, ETransactionType.DEBIT, ETransactionCategory.UNKNOWN))
+            transactionList.add(Transaction(formatCalendarDateToFrDate(calendar), "SARL Inconnue Crdéit", 85.0, ETransactionType.CREDIT, ETransactionCategory.UNKNOWN))
 
-            return Account(120548, "Mon compte analyse test", 1548, EAccountCategory.CURRENT, transactionList)
+            return Account(120548, "Mon compte analyse test", 1548.0, EAccountCategory.CURRENT, transactionList)
         }
     }
 }

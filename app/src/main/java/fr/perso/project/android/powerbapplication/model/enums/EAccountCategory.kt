@@ -4,6 +4,6 @@ enum class EAccountCategory (val categoryName : String){
     CURRENT("Courant"),
     SAVING("Epargne"),
     FORECAST("Prévisionnel"),
-    CREDIT("Crédit")
-
+    CREDIT("Crédit"),
+    UNKNOWN("Inconnue"),
 }

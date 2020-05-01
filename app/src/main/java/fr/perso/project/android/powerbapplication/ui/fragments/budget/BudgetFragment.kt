@@ -19,7 +19,11 @@ import fr.perso.project.android.powerbproject.mocks.MockClass.Companion.mockAcco
 import kotlinx.android.synthetic.main.fragment_budget.*
 import kotlinx.android.synthetic.main.fragment_budget.view.*
 
-
+/**
+ * Budget Fragment : Chart analysis of budget in funtion of the type selected (incomes/expenses) and the month
+ *
+ * @author : JEAN-LOUIS Thessalène
+ */
 class BudgetFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -32,7 +36,7 @@ class BudgetFragment : Fragment() {
         var transactionsMock = mockAccountWithTransactionCategorie().transactions
 
         //PieChart
-        setupPieChart(pieChart, transactionsMock, ETransactionType.DEBIT)
+        setupPieChart(pieChart, transactionsMock!!, ETransactionType.DEBIT)
 
         root.btn_expenses.setOnClickListener{
             root.btn_incomes.setBackgroundColor(resources.getColor(android.R.color.darker_gray))
@@ -55,11 +59,11 @@ class BudgetFragment : Fragment() {
         return root
     }
 
-    fun setupPieChart(pieChart : PieChart, transactionsMock : ArrayList<Transaction>, filter : ETransactionType){
+    private fun setupPieChart(pieChart : PieChart, transactionsMock : List<Transaction>?, filter : ETransactionType){
         //Init
         val NoOfEmp = ArrayList<PieEntry>()
 
-        println("TRANSACTION LIST : " + transactionsMock.toString())
+        println("TRANSACTION LIST : $transactionsMock")
 
         println("Somme : " + calculSommeDepenseForCategory(transactionsMock, ETransactionCategory.UNKNOWN, filter))
 
@@ -85,11 +89,14 @@ class BudgetFragment : Fragment() {
 
     }
 
-    fun calculSommeDepenseForCategory(transactionList : List<Transaction>, category : ETransactionCategory, type : ETransactionType) : Int{
-        return transactionList
-            .asSequence().filter{o -> o.eTransactionCategory==category}
-            .filter { o -> o.eTransactionType==type }
-            .map {it.amount}
-            .sum()
+    private fun calculSommeDepenseForCategory(transactionList : List<Transaction>?, category : ETransactionCategory, type : ETransactionType) : Double {
+        return if (transactionList.isNullOrEmpty()) {
+            0.0
+        } else {
+            transactionList.asSequence().filter{o -> o.eTransactionCategory==category}
+                .filter { o -> o.eTransactionType==type }
+                .map {it.amount}
+                .sum()
+        }
     }
 }

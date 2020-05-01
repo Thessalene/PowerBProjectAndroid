@@ -46,18 +46,16 @@ class TransactionAdapter(val context : Context, var transactionList : ArrayList<
     /**
      * Function to convert our transactionList into a TransactionOrHeaderList (our data source)
      */
-    fun convertTransactionListToTransactionOrHeaderList() {
-        println("---------- CONVERT TRANSACTION LIST ----------")
-        var listeTempo = ArrayList<TransactionOrHeader>()
+    private fun convertTransactionListToTransactionOrHeaderList() {
+        val listTempo = ArrayList<TransactionOrHeader>()
 
         //Extract a list of date fro list input
-        var dateList= transactionList.asSequence().map{it.date}.distinct().toList()
-        println("DATE LIST :$dateList")
+        val dateList= transactionList.asSequence().map{it.date}.distinct().toList()
 
         for (date in dateList) {
             val filteredList = transactionList.asSequence().filter { o -> o.date == date }.toList()
             if (filteredList.isNotEmpty()) {
-                listeTempo.add(
+                listTempo.add(
                     TransactionOrHeader(
                         Header(date),
                         null,
@@ -65,7 +63,7 @@ class TransactionAdapter(val context : Context, var transactionList : ArrayList<
                     )
                 )
                 for (transaction in filteredList) {
-                    listeTempo.add(
+                    listTempo.add(
                         TransactionOrHeader(
                             null,
                             transaction,
@@ -75,8 +73,8 @@ class TransactionAdapter(val context : Context, var transactionList : ArrayList<
                 }
             }
         }
-        transactionOrHeaderList.addAll(listeTempo)
-        println("[Convert] result : ${transactionOrHeaderList}")
+        transactionOrHeaderList.addAll(listTempo)
+        println("[Convert] result : $transactionOrHeaderList")
     }
 
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view){

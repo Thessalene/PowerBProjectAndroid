@@ -9,13 +9,13 @@ import fr.perso.project.android.powerbproject.model.enums.EBankName
  *
  * @author : JEAN-LOUIS Thessalène
  */
-data class Account (
-    val number : Int,
+data class Account(
+    val number: Int,
     val accountName:String,
-    val solde: Int,
-    val category: EAccountCategory,
-    val transactions:ArrayList<Transaction>,
-    val bankName : EBankName= EBankName.CAISSE_EPÄRGNE){
+    val solde: Double,
+    val category: EAccountCategory = EAccountCategory.UNKNOWN,
+    var transactions:List<Transaction>? = null,
+    val bankName: EBankName= EBankName.INCONNUE){
 
     override fun toString(): String {
         return "${category.name} - $accountName"

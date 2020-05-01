@@ -11,12 +11,12 @@ import fr.perso.project.android.powerbapplication.model.enums.ETransactionType
  *
  * @author : JEAN-LOUIS Thessalène
  */
-data class Transaction (val date : String, val libelle : String, val amount: Int, val eTransactionType : ETransactionType, val eTransactionCategory : ETransactionCategory = ETransactionCategory.UNKNOWN) :
+data class Transaction(val date: String, val libelle: String, val amount: Double, val eTransactionType: ETransactionType, val eTransactionCategory: ETransactionCategory = ETransactionCategory.UNKNOWN) :
     Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.readInt(),
+        parcel.readDouble(),
         parcel.readValue(ETransactionType::class.java.classLoader) as ETransactionType,
         parcel.readValue(ETransactionCategory::class.java.classLoader) as ETransactionCategory
     )
@@ -24,7 +24,7 @@ data class Transaction (val date : String, val libelle : String, val amount: Int
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(date)
         parcel.writeString(libelle)
-        parcel.writeInt(amount)
+        parcel.writeDouble(amount)
         parcel.writeValue(eTransactionType)
         parcel.writeValue(eTransactionCategory)
     }
@@ -41,6 +41,10 @@ data class Transaction (val date : String, val libelle : String, val amount: Int
         override fun newArray(size: Int): Array<Transaction?> {
             return arrayOfNulls(size)
         }
+    }
+
+    override fun toString(): String {
+        return super.toString() + "\n"
     }
 
 }

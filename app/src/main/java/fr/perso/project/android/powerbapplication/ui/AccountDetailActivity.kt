@@ -18,6 +18,7 @@ import fr.perso.project.android.powerbapplication.model.Transaction
 import kotlinx.android.synthetic.main.activity_account_detail.*
 import kotlinx.android.synthetic.main.content_account_detail.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import java.io.Serializable
 
 class AccountDetailActivity : AppCompatActivity() {
 
@@ -83,11 +84,11 @@ class AccountDetailActivity : AppCompatActivity() {
 
         lateinit var transactionAdapter : TransactionAdapter
 
-        fun newIntent(context: Context, accountName : String, accountSolde : Int, transactionList : ArrayList<Transaction>): Intent {
+        fun newIntent(context: Context, accountName : String, accountSolde : Double, transactionList : List<Transaction?>): Intent {
             val intent = Intent(context, AccountDetailActivity::class.java)
             intent.putExtra("accountName", accountName)
             intent.putExtra("accountSolde", accountSolde)
-            intent.putExtra("transactionList", transactionList)
+            intent.putExtra("transactionList", transactionList as Serializable)
             return intent
         }
     }

@@ -13,7 +13,7 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import fr.perso.project.android.powerbapplication.R
-import kotlinx.android.synthetic.main.fragment_notifications.view.*
+import kotlinx.android.synthetic.main.fragment_saving.view.*
 
 
 class SavingFragment : Fragment() {
@@ -23,7 +23,7 @@ class SavingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_notifications, container, false)
+        val view = inflater.inflate(R.layout.fragment_saving, container, false)
 
         view.line_chart.setTouchEnabled(true)
         view.line_chart.setPinchZoom(true)

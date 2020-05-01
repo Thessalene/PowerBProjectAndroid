@@ -1,0 +1,11 @@
+12345;Compte chèque Caisse d'épargne;"210,54";
+Date;Libellé;Debit;Credit
+03/02;Vir SEPA Machin Truc;0;"105,29"
+04/02;* COTISATION CARTE SENSEA;"6,5";0;
+05/02;CB TooGoodTooGo FACT 12345;"3,99";0;
+06/02;CB Cazino shop;"14,58";0;
+07/02;CB Honore;"5,56";0;
+08/02;Retrait DAB ;40;0;
+10/02;VIREMENT VERS DE BAUDINNIERE;"559,62";0;
+14/02;VIR SEPA vers LDD Solidaire;150;0;
+18/02;VIR remboursement;0;50

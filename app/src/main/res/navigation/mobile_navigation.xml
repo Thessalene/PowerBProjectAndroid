@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
+
     app:startDestination="@+id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_home"
         android:name="fr.perso.project.android.powerbapplication.ui.fragments.home.AccountFragment"
-        android:label="@string/title_home" />
+        android:label="LABEL" />
 
     <fragment
         android:id="@+id/navigation_budget"
@@ -20,5 +21,11 @@
         android:id="@+id/navigation_saving"
         android:name="fr.perso.project.android.powerbapplication.ui.fragments.saving.SavingFragment"
         android:label="@string/title_saving"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_saving" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="fr.perso.project.android.powerbapplication.ui.fragments.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
